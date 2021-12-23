@@ -8,9 +8,17 @@
 > Não deve-se somente reproduzir o nosso roteiro no github. Mas criar o seu próprio roteiro de instalação.
 
 # Requisitos
-- [x] Requisito 1
-- [x] Requisito 2
-- [x] Requisito 3
+- [x] Cabeçalho com o nome do IFAL, Disciplina, Turma e Nome da dupla
+- [x] Introdução sobre o trabalho considerando o que será feito e para que serve os serviços ofertados neste trabalho.
+- [x] Nome do domínio, no formato: (nomedupla).labredes.ifalarapiraca.local
+- [x] Tabela de nomes FQDN dos hosts
+- [x] Tabela de definições de IPs, contendo o gateway, o dns e o samba
+- [x] Roteiro de implementação do Samba
+- [x] Roteiro de implementação do DNS
+- [x] Configuração das interfaces de rede dos hosts da dupla para os nomes que foram planejado na tabela de nomes FQDN
+- [x] Sessão de testes contendo todos os testes de dig, nslookup e ping de todos os hosts para todos os hosts usando nomes e IPs
+- [x] Sessão de testes gravando um arquivo no samba através de um host local com acesso via VPN ao labredes (Windows, Linux, ChromeOS e etc.)
+- [x] Configuração da interface do host local para usar o seu servidor DNS
 
 # Tabelas de Definições de Rede
 
