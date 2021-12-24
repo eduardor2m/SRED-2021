@@ -10,6 +10,8 @@ $ sudo apt-get install bind9 dnsutils bind9-doc
 ```bash
 $ sudo systemctl status bind9
 ```
+![Screenshot_20211224_134935](https://user-images.githubusercontent.com/62352928/147367808-46711469-7092-416e-8a2b-56d5379a7898.png)
+
    * Se não estiver rodando:
 ```bash
 $ sudo systemctl enable bind9
@@ -22,6 +24,8 @@ $ sudo systemctl enable bind9
 ```bash
 $ ls /etc/bind
 ```
+![Screenshot_20211224_135040](https://user-images.githubusercontent.com/62352928/147367794-88ea26bc-9646-40c5-9e44-df0dabd521b1.png)
+
 ```
 total 64
 drwxr-sr-x  3 root bind 4096 Oct 15 09:06 .
@@ -161,6 +165,8 @@ zone "14.9.10.in-addr.arpa" IN {
 	allow-transfer{ 10.9.14.11; };
 };
 ```
+![Screenshot_20211224_141322](https://user-images.githubusercontent.com/62352928/147367864-ef52dad0-3a74-4ad3-9dd5-8df3bbe8ec09.png)
+
 ---
 
 ### Verificação de sintaxe 
