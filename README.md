@@ -92,6 +92,13 @@ network:
 
 # Implementação do Samba
 
+- Definir o nome da VM como ns1
+
+```bash
+ $ sudo hostnamectl ns1
+ $ reboot
+```
+
 - Instalar samba na máquina virtual
 
 ```bash
