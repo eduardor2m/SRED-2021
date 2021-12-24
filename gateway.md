@@ -25,6 +25,7 @@ $ sudo nano /etc/ufw/sysctl.conf
 net/ipv4/ip_forwarding=1
 ...
 ```
+![Screenshot_20211224_142911](https://user-images.githubusercontent.com/62352928/147367689-12a880df-2da8-4ea9-97ab-ef893a22dea7.png)
 
    3. confira o nome das interfaces de rede
 ```bash
@@ -102,6 +103,8 @@ iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
 # rc.local precisa sair com 0
 exit 0
 ```
+![Screenshot_20211224_143039](https://user-images.githubusercontent.com/62352928/147367716-5f8def67-1dbb-4c88-be50-ade7ec18b4e4.png)
+
 ---
    7. converte o arquivo em executável e o torna inicializável no boot
 ```bash
