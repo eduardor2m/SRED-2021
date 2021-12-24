@@ -41,6 +41,8 @@ $ sudo systemctl status smbd
              └─739 /usr/sbin/smbd --foreground --no-process-group
 
 ```
+![Screenshot_20211224_134820](https://user-images.githubusercontent.com/62352928/147367434-9e211cff-e49d-429f-8ec4-02548cc352a2.png)
+
 
 ```bash
  $ netstat -an | grep LISTEN
@@ -196,4 +198,7 @@ sudo chgrp sambashare /samba/public
 * Em um máquina com Windows (também pode usar linux os MacOS) digite no Winndows Explorer o endereço IP do servidor samba da seguinte forma:
 **\\ip_do_maquina**. Exemplo: \\10.9.24.124
 ```
-![Screenshot_20211223_172009](https://user-images.githubusercontent.com/62352928/147303838-a9eba405-8959-4239-adea-684847f334bd.png)
+![Screenshot_20211224_134606](https://user-images.githubusercontent.com/62352928/147367572-e5259daf-7626-46d0-9bd5-f3e3a7319905.png)
+![Screenshot_20211224_134631](https://user-images.githubusercontent.com/62352928/147367547-df81a5b0-87c7-40cf-8993-db6b05fa43bc.png)
+![Screenshot_20211224_134645](https://user-images.githubusercontent.com/62352928/147367500-d1883148-9c08-4200-8c86-5388038befdc.png)
+
