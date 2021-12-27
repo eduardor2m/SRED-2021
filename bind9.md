@@ -1,18 +1,18 @@
 # Configuração do Bind9 (DNS Server)
 
 ## Instalação 
-   * O BIND9 é a aplicação de DNS que roda no servidor.
-   * Instalar o bind9 via apt-get
+   * A aplicação de DNS que roda no servidor chama-se BIND9.
+   * Instalação o bind9 via apt-get
 ```bash
 $ sudo apt-get install bind9 dnsutils bind9-doc 
 ```
-   * Verifique o status do serviço:
+   * Verificação do status do serviço:
 ```bash
 $ sudo systemctl status bind9
 ```
 ![Screenshot_20211224_134935](https://user-images.githubusercontent.com/62352928/147367808-46711469-7092-416e-8a2b-56d5379a7898.png)
 
-   * Se não estiver rodando:
+   * Se não funcionar:
 ```bash
 $ sudo systemctl enable bind9
 ```
@@ -46,15 +46,15 @@ drwxr-xr-x 94 root root 4096 Oct  8 23:29 ..
 ```
 
 ### Zonas
-   * As zonas são especificadas em arquivos **db**. Vamos criar um diretório para armazendar os arquivos de zonas, que sera o diretório ***/etc/bind/zones***  
+   * As zonas são especificadas em arquivos **db**. Deve-se criar um diretório para armazendar os arquivos de zonas, que será o diretório ***/etc/bind/zones***  
 ```bash
 $ sudo mkdir /etc/bind/zones
 ```
 
-#### Criar arquivos db
+#### Criação de arquivos db
    * Criar o arquivo **db** no diretório ***/etc/bind/zones***. 
-   * Os arquivos **db** são bancos de dados de resolução de nomes, ou seja, quando se sabe o nome da máquina mas não se conhece o IP. Cada zona no DNS deve ter seu próprio arquivo **db**, por exemplo: a zona *meusite.com.br* terá o arquivo **db.meusite.com.br**, já a zona *outrosite.net* terá o arquivo **db.outrosite.net**. 
-   * No nosso caso o domínio/zona local será labredes.ifalarapiraca.local. Assim o arquivo db será db.labredes.ifalarapiraca.local
+   * Os arquivos **db** são bancos de dados de resolução de nomes, isto é, quando se sabe o nome da máquina mas não se conhece o IP. Cada zona no DNS deve ter seu próprio arquivo **db**, por exemplo: a zona *eduardo.com.br* terá o arquivo **db.eduardo.com.br**, já a zona *gustavo.net* terá o arquivo **db.gustavo.net**. 
+   * No caso em questão o domínio/zona local será labredes.ifalarapiraca.local. Assim o arquivo db será db.labredes.ifalarapiraca.local
    
 ##### zona direta
    * o arquivo db.labredes.ifalarapiraca.local conterá os nomes das máquinas do domínio labredes.ifalarapiraca.local
@@ -64,7 +64,7 @@ $ sudo cp /etc/bind/db.empty /etc/bind/zones/db.labredes.ifalarapiraca.local
 ```
 
 ##### zona reversa
-   * Utilizado quando não se conhece o IP mas sabe-se o nome do host.
+   * utilizado quando não se conhece o IP mas sabe-se o nome do host.
    * vamos criar a zona reversa a partir do arquivo /etc/bind/db.127
 ```bash
   $ sudo cp /etc/bind/db.127 /etc/bind/zones/db.10.9.14.rev
@@ -189,7 +189,7 @@ zone 14.9.10.in-addr.arpa/IN: loaded serial 1
 OK
 ```
 
-### Configure para somente resolver endereços IPv4
+### Configuração para somente resolver endereços IPv4
 
 ```bash
 $sudo nano /etc/default/named
@@ -211,7 +211,7 @@ $ sudo systemctl restart bind9
 ```
 
 ### Configuração dos clientes
-   * Configure o dns no nas máquina ns1, ns2 e us adicionando os campos abaixo na interface de rede local deses servidores. Observe que na máquina gw essa configuração deve ser inserida na interface de rede local (enp0s8)
+   * Configurar o dns no nas máquina ns1, ns2 e us adicionando os campos abaixo na interface de rede local deses servidores. Observe que na máquina gw essa configuração deve ser inserida na interface de rede local (enp0s8)
 ```
             nameservers: 
                 addresses:
@@ -245,7 +245,7 @@ network:
 ### Testando o servidor DNS:
 
 #### Teste de configuração como cliente. 
-   * Observe se os campos **DNS servers** e **DNS Domain** estão corretos.
+   * Observar se os campos **DNS servers** e **DNS Domain** estão corretos.
 ```bash
 $ systemd-resolve --status enp0s3
 ```
@@ -261,8 +261,8 @@ MulticastDNS setting: no
          DNS Domain: labredes.ifalarapiraca.local
 ```
 ---
-#### Teste o serviço DNS para a máquina ns1. 
-   * Veja a resposta em **ANSWER SECTION**.
+#### Testar o serviço DNS para a máquina ns1. 
+   * Ver a resposta em **ANSWER SECTION**.
 ```bash
 $ dig ns1.labredes.ifalarapiraca.local
 ```
@@ -291,7 +291,7 @@ ns1.labredes.ifalarapiraca.local. 5204 IN A	10.9.14.10
 ```
 ---
 
-#### Teste o serviço DNS reverso para a máquina ns1. 
+#### Testar o serviço DNS reverso para a máquina ns1. 
 ```bash    
 $ dig -x 10.9.14.10
 ```
@@ -316,7 +316,7 @@ $ dig -x 10.9.14.10
 ;; MSG SIZE  rcvd: 97
 ```
 ---
-#### Teste o serviço DNS reverso para a máquina ns2. 
+#### Testar o serviço DNS reverso para a máquina ns2. 
 ```bash  
 $ dig -x 10.9.14.11
 ```
@@ -366,11 +366,11 @@ network:
     version: 2
 ```
 
-   * Aplique as configurações
+   * Aplicar as configurações
 ```bash
 $ sudo netplan apply
 ``` 
-   * veja se funcionou
+   * ver se funcionou
 ```bash
 $ ifconfig
 ```
@@ -382,7 +382,7 @@ $ sudo apt-get install bind9 dnsutils bind9-doc -y
 ```
 
 
-   * Verifique o status do serviço:
+   * Verificar o status do serviço:
 ```bash
 $ sudo systemctl status bind9
 ```
