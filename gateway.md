@@ -1,13 +1,13 @@
 
-# Configuração do servidor Gateway como NAT
+# Implementação do servidor Gateway como NAT
 
-## Configuração do firewall/NAT
+## Firewall/NAT
 
-   * Para configurar um servidor como gateway de rede é necessário configurar o firewall do linux (iptables). 
-   * as regras do iptables podem ser digitadas no terminal ou podem ser executadas em um script.
-   * Com um script, pode-se inicializar as regras do firewall todas as vezes que a máquina for reinicializada.
+   * Inicialmente, é preciso configurar o firewall do linux (iptables) para configurar um servidor como gateway de rede. 
+   * Pode-se digitar as regras do iptables no terminal ou podem ser executadas em um script.
+   * Pode-se inicializar as regras do firewall com um script todas as vezes que a máquina for reinicializada.
 
-### habilitar o firewall 
+### habilitando o firewall 
    * Vamos serguir os passos descritos em [1]:
    
    1. habilitar o firewall e permitir o acesso ssh:
@@ -15,7 +15,7 @@
  $ sudo ufw enable
  $ sudo ufw allow ssh
 ```
-   2. habilitar o encaminhamento de pacotes das interfaces WAN para LAN, ajustando-se os parâmetros no arquivo **/etc/ufw/sysctl.conf**, removendo-se a marca de comentário (#) da seguinte linha _# net/ipv4/ip_forwarding=1_
+   2. habilitar o encaminhamento de pacotes das interfaces WAN para LAN, ajustando os parâmetros no arquivo **/etc/ufw/sysctl.conf**, retirando a marca de comentário (#) da seguinte linha _# net/ipv4/ip_forwarding=1_
 
 ```bash
 $ sudo nano /etc/ufw/sysctl.conf
@@ -27,7 +27,7 @@ net/ipv4/ip_forwarding=1
 ```
 ![Screenshot_20211224_142911](https://user-images.githubusercontent.com/62352928/147367689-12a880df-2da8-4ea9-97ab-ef893a22dea7.png)
 
-   3. confira o nome das interfaces de rede
+   3. conferir o nome das interfaces de rede
 ```bash
 $ ifconfig -a
 ```
